@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Website</title>
+</head>
+<body>
+	<header>
+		<h1>Welcome to My Website</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+	<main>
+		<h2>Home</h2>
+		<p>Welcome to my website! This is the home page.</p>
+		<button id="generate-button">Generate Password</button>
+		<p id="password-output"></p>
+	</main>
+	<footer>
+		<p>Copyright 2022</p>
+	</footer>
+	
+	<script>
+		function generatePassword() {
+		  const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+		  let password = '';
+		  const length = 8 + Math.floor(Math.random() * 5);  // generates a random number between 8 and 12
+
+		  for (let i = 0; i < length; i++) {
+			password += characters.charAt(Math.floor(Math.random() * characters.length));
+		  }
+
+		  return password;
+		}
+		
+		const generateButton = document.getElementById('generate-button');
+		const passwordOutput = document.getElementById('password-output');
+		
+		generateButton.addEventListener('click', function() {
+		  passwordOutput.innerHTML = generatePassword();
+		});
+	</script>
+</body>
+</html>
